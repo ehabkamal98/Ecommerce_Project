@@ -39,21 +39,22 @@ Route::group(['middleware'=>'admin:1'],function (){
     Route::get('/dashboard/product/delete_product/{id}','ProductController@destroy')->name('delete_product');
     Route::get('/dashboard/product/edit_product/{id}','ProductController@edit')->name('edit_product');
     Route::post('/dashboard/product/update_product/{id}','ProductController@update')->name('update_product');
-
+	
 });
 
 Route::group(['middleware'=>'admin:'],function (){
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/category/{id}','ProductController@userview')->name('product_user');
+	
+	Route::get('/cart','CartController@show_cart')->name('show_cart');
+	Route::get('/addtocart/{id}/{count}','CartController@store_session')->name('add_to_cart');
+	Route::get('/empty','CartController@empty_session')->name('empty_cart');
+
+	Route::get('/storemycart','CartController@save_my_cart')->name('save_my_cart');
+	Route::get('/getmycart','CartController@get_my_cart')->name('get_my_cart');
+	Route::get('/emptycart','CartController@empty_cart')->name('empty_cart_db');
 });
 
 Route::get('/Login','PagesController@show_login')->name('show_login');
 Route::get('/Register','PagesController@show_reg')->name('show_reg');
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
-Route::get('/cart','CartController@show_cart')->name('show_cart');
-Route::get('/addtocart/{id}/{count}','CartController@store_session')->name('add_to_cart');
-Route::get('/empty','CartController@empty_session')->name('empty_cart');
-
-Route::get('/storemycart','CartController@save_my_cart')->name('save_my_cart');
-Route::get('/getmycart','CartController@get_my_cart')->name('get_my_cart');
-Route::get('/emptycart','CartController@empty_cart')->name('empty_cart_db');
