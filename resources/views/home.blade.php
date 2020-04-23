@@ -11,6 +11,7 @@ $cats=DB::table('categories')->get();
     <h1> <i class="bx bx-collection"> </i> Categories</h1>
     @foreach($cats as $cat)
         <p style="display:none">{{$count=DB::table('products')->where('category_id',$cat->id)->count()}} </p>
+    @if($count>0)
     <a href="{{route('product_user',$cat->id)}}"><div class="card bg-white border-dark " style="height:300px;margin: 0 auto;color: black;margin-bottom: 30px;border-radius: 30px">
         <img class="card-img" src="{{asset('images/'.$cat->image)}}"style="height:300px;;opacity: .5;border-radius: 30px" alt={{$cat->name}}>
         <div class="card-img-overlay">
@@ -19,6 +20,7 @@ $cats=DB::table('categories')->get();
             <p class="card-text btn btn-success bx bx-detail"> {{$count}}</p>
         </div>
         </div></a>
+        @endif
         @endforeach
 </div>
 @endsection

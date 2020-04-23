@@ -108,7 +108,7 @@ class CategoryController extends Controller
         $delete=Category::findOrFail($id);
         $delete->delete();
         $delete_products=Product::where('category_id',$id)->get();
-        $delete_products->delete();
+        $delete_products->each->delete();
         return back()->with('message','Delete Success!');
     }
 }

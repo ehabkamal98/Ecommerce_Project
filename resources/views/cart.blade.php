@@ -61,7 +61,7 @@
         </div>
         @endif
 
-        @if(is_array($carts)||is_object($carts)||$carts)
+        @if(is_array($carts)||is_object($carts))
         <h1 class="text-center"> <i class="bx bx-git-pull-request"> </i> My Cart</h1>
         <div class="row">
                         <div class="col-12">

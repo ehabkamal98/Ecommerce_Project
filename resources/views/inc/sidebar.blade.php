@@ -9,7 +9,7 @@ $products=DB::table('products')->inRandomOrder()->where('quantity','<>','0')->li
                 <br>
                 <div class="card mb-1" style="border-radius: 20px">
                     <div class="position-relative card-img overlay" >
-                        <span class="btn btn-danger" style="position: absolute;"><i class="bx bxs-collection"> </i> {{$cat=DB::table('categories')->find($product->category_id)->name}}</span>
+                        <span class="btn btn-danger"><i class="bx bxs-collection"> {{$cat=DB::table('categories')->find($product->category_id)->name}} </i> </span>
                         <img src="{{asset('images/'.$product->category_id.'/'.$product->image)}}" alt="{{$product->name}}" height="100%" width="100%" style="opacity: .7;border-radius: 10px">
                     </div>
                     <div class="card-body">

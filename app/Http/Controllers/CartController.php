@@ -16,6 +16,8 @@ class CartController extends Controller
     public function store_session($id,$count)
     {
             $product = Product::find($id);
+            $product->quantity=$product->quantity-$count;
+            $product->save();
             $old=Session::has('cart')? Session::get('cart') : null;
             $cart=new CartClass($old);
             $cart->add($product,$product->id);

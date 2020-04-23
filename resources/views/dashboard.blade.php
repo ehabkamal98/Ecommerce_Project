@@ -82,9 +82,6 @@ $finish_product=DB::table('products')->where('quantity','0')->paginate(5);
         </div>
     </nav>
     <div class="tab-content" id="nav-tabContent">
-        <div class="tab-pane fade" id="nav-category" role="tabpanel" aria-labelledby="nav-home-tab">
-
-        </div>
         <div class="tab-pane fade" id="nav-product" role="tabpanel" aria-labelledby="nav-profile-tab">
             <div class="row" style="width: 100%;margin-top: 20px">
                 <h1 class="text-center col-md-10">  <i class="bx bx-collection"> </i> Categories</h1>
@@ -154,7 +151,6 @@ $finish_product=DB::table('products')->where('quantity','0')->paginate(5);
                             </tbody>
                         </table>
                         <div style="padding-left: 50%;padding-top: 50px">{{$finish_product->links()}}</div>
-
                     </div>
                 </div>
             </div>
